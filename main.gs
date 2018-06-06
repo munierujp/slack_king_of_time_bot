@@ -221,7 +221,7 @@ function createTimestamp_ (date, time) {
 }
 
 /**
-* Slackに情報を投稿します。
+* Slackにメッセージを投稿します。
 * @param {string} message - メッセージ
 */
 function postToSlack_ (message) {
