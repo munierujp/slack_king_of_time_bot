@@ -19,3 +19,7 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`TIMESTAMP_TIMEZONE`|タイムスタンプの末尾に付与するタイムゾーン|`+0900`|
 |`TIMEZONE`|タイムゾーン|`Asia/Tokyo`|
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
+
+## ライブラリ
+* Moment.js  
+`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`
