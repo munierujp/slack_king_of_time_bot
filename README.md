@@ -11,8 +11,8 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`KINGOFTIME_SESSION`|KING OF TIMEのセッション|-|
 |`KINGOFTIME_URL_LOGIN`|KING OF TIMEのログインURL|`https://s3.kingtime.jp/admin`|
 |`KINGOFTIME_URL_ROOT`|KING OF TIMEのルートURL|`https://s3.kingtime.jp`|
-|`LAST_PUNCHED_IN_AT`|最終出勤日持|`2018-06-06T09:09:00+0900`|
-|`LAST_PUNCHED_OUT_AT`|最終退勤日持|`2018-06-06T19:38:00+0900`|
+|`LAST_PUNCHED_IN_AT`|最終出勤日時|-|
+|`LAST_PUNCHED_OUT_AT`|最終退勤日時|-|
 |`LOGIN_RETRY_COUNT`|ログインをリトライする回数|`3`|
 |`MY_NAME`|自分の名前|`ムニエル`|
 |`SESSION_TIMEOUT_MINUTES`|セッションのタイムアウト時間（分）|`30`|
