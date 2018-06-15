@@ -1,3 +1,5 @@
+var moment = Moment.moment
+
 var properties = PropertiesService.getScriptProperties()
 var KINGOFTIME_ID = properties.getProperty('KINGOFTIME_ID')
 var KINGOFTIME_PASSWORD = properties.getProperty('KINGOFTIME_PASSWORD')
@@ -18,7 +20,7 @@ function exec () {
   // 今日の退勤情報を投稿済みなら終了
   var today = new Date()
   var lastPunchedOutAt = properties.getProperty(PROPERTY_KEY_LAST_PUNCHED_OUT_AT)
-  var punchedOutMessageHasPosted = lastPunchedOutAt && Moment.moment(lastPunchedOutAt).isSame(today, 'day')
+  var punchedOutMessageHasPosted = lastPunchedOutAt && moment(lastPunchedOutAt).isSame(today, 'day')
   if (punchedOutMessageHasPosted) {
     return
   }
@@ -44,7 +46,9 @@ function exec () {
       }
     }
     if (!timeCardPage) {
-      throw new Error('KING OF TIMEへのログインに失敗しました。')
+      var tryCount = LOGIN_RETRY_COUNT + 1
+      Logger.log('KING OF TIMEへのログインに' + tryCount + '回連続で失敗しました。実行を終了します。')
+      return
     }
   }
 
@@ -54,7 +58,7 @@ function exec () {
 
   // 出勤情報をSlackに投稿
   var lastPunchedInAt = properties.getProperty(PROPERTY_KEY_LAST_PUNCHED_IN_AT)
-  var punchedInMessageHasPosted = lastPunchedInAt && Moment.moment(lastPunchedInAt).isSame(today, 'day')
+  var punchedInMessageHasPosted = lastPunchedInAt && moment(lastPunchedInAt).isSame(today, 'day')
   if (!punchedInMessageHasPosted) {
     var punchedInTime = todayRow.match('<td +class="start_end_timerecord( | .+)?"( | .+ )data-ht-sort-index="START_TIMERECORD" *>(.|\r|\n)+?</td>')[0].match('[0-9]{2}:[0-9]{2}')
     if (punchedInTime) {
@@ -102,9 +106,9 @@ function saveSession_ (session) {
 * @return {boolean} セッションが生存しているであろうならtrue、それ以外はfalse
 */
 function sessionWouldAlive_ (session) {
-  var timestamp = Moment.moment(session.timestamp)
+  var timestamp = moment(session.timestamp)
   timestamp.add(SESSION_TIMEOUT_MINUTES, 'm')
-  var now = Moment.moment()
+  var now = moment()
   return now.isBefore(timestamp)
 }
 
