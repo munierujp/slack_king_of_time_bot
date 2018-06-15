@@ -21,5 +21,5 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
 
 ## ライブラリ
-* Moment.js  
+* Moment  
 `MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`
