@@ -16,8 +16,7 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`LOGIN_RETRY_COUNT`|ログインをリトライする回数|`3`|
 |`MY_NAME`|自分の名前|`ムニエル`|
 |`SESSION_TIMEOUT_MINUTES`|セッションのタイムアウト時間（分）|`30`|
-|`TIMESTAMP_TIMEZONE`|タイムスタンプの末尾に付与するタイムゾーン|`+0900`|
-|`TIMEZONE`|タイムゾーン|`Asia/Tokyo`|
+|`TIMEZONE_OFFSET`|タイムゾーンのオフセット|`+0900`|
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
 
 ## ライブラリ
