@@ -9,7 +9,6 @@ var LOGIN_RETRY_COUNT = Number(properties.getProperty('LOGIN_RETRY_COUNT'))
 var MY_NAME = properties.getProperty('MY_NAME')
 var SESSION_TIMEOUT_MINUTES = Number(properties.getProperty('SESSION_TIMEOUT_MINUTES'))
 var TIMESTAMP_TIMEZONE = properties.getProperty('TIMESTAMP_TIMEZONE')
-var TIMEZONE = properties.getProperty('TIMEZONE')
 var WEBHOOK_URL = properties.getProperty('WEBHOOK_URL')
 
 var PROPERTY_KEY_KINGOFTIME_SESSION = 'KINGOFTIME_SESSION'
