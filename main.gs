@@ -211,7 +211,7 @@ function findTimeCardRow_ (timeCardPage, date) {
 * @return {string} フォーマットした文字列
 */
 function formatDate_ (date, pattern) {
-  return Utilities.formatDate(date, TIMEZONE, pattern)
+  return moment(date).format(pattern)
 }
 
 /**
