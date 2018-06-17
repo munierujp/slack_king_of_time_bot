@@ -14,8 +14,8 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`LAST_PUNCHED_IN_AT`|最終出勤日時|-|
 |`LAST_PUNCHED_OUT_AT`|最終退勤日時|-|
 |`LOGIN_RETRY_COUNT`|ログインをリトライする回数|`3`|
-|`MESSAGE_TEMPLATE_PUHCHED_IN`|メッセージのテンプレート|`{{time}} ムニエルさんが出勤しました。`|
-|`MESSAGE_TEMPLATE_PUHCHED_OUT`|メッセージのテンプレート|`{{time}} ムニエルさんが退勤しました。`|
+|`MESSAGE_TEMPLATE_PUHCHED_IN`|出勤メッセージのテンプレート|`{{time}} ムニエルさんが出勤しました。`|
+|`MESSAGE_TEMPLATE_PUHCHED_OUT`|退勤メッセージのテンプレート|`{{time}} ムニエルさんが退勤しました。`|
 |`SESSION_TIMEOUT_MINUTES`|セッションのタイムアウト時間（分）|`30`|
 |`TIMEZONE_OFFSET`|タイムゾーンのオフセット|`+0900`|
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
