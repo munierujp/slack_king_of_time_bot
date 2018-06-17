@@ -6,7 +6,8 @@ var KINGOFTIME_PASSWORD = properties.getProperty('KINGOFTIME_PASSWORD')
 var KINGOFTIME_URL_LOGIN = properties.getProperty('KINGOFTIME_URL_LOGIN')
 var KINGOFTIME_URL_ROOT = properties.getProperty('KINGOFTIME_URL_ROOT')
 var LOGIN_RETRY_COUNT = Number(properties.getProperty('LOGIN_RETRY_COUNT'))
-var MY_NAME = properties.getProperty('MY_NAME')
+var MESSAGE_TEMPLATE_PUHCHED_IN = properties.getProperty('MESSAGE_TEMPLATE_PUHCHED_IN')
+var MESSAGE_TEMPLATE_PUHCHED_OUT = properties.getProperty('MESSAGE_TEMPLATE_PUHCHED_OUT')
 var SESSION_TIMEOUT_MINUTES = Number(properties.getProperty('SESSION_TIMEOUT_MINUTES'))
 var TIMEZONE_OFFSET = properties.getProperty('TIMEZONE_OFFSET')
 var WEBHOOK_URL = properties.getProperty('WEBHOOK_URL')
@@ -61,7 +62,9 @@ function exec () {
   if (!punchedInMessageHasPosted) {
     var punchedInTime = todayRow.match('<td +class="start_end_timerecord( | .+)?"( | .+ )data-ht-sort-index="START_TIMERECORD" *>(.|\r|\n)+?</td>')[0].match('[0-9]{2}:[0-9]{2}')
     if (punchedInTime) {
-      var punchedInMessage = punchedInTime + ' ' + MY_NAME + 'さんが出勤しました。'
+      var punchedInMessage = createPunchedInMessage_({
+        time: punchedInTime
+      })
       postToSlack_(punchedInMessage)
       var punchedInAt = createTimestamp_(todayDate, punchedInTime)
       properties.setProperty(PROPERTY_KEY_LAST_PUNCHED_IN_AT, punchedInAt)
@@ -72,7 +75,9 @@ function exec () {
   if (!punchedOutMessageHasPosted) {
     var punchedOutTime = todayRow.match('<td +class="start_end_timerecord( | .+)?"( | .+ )data-ht-sort-index="END_TIMERECORD" *>(.|\r|\n)+?</td>')[0].match('[0-9]{2}:[0-9]{2}')
     if (punchedOutTime) {
-      var punchedOutMessage = punchedOutTime + ' ' + MY_NAME + 'さんが退勤しました。'
+      var punchedOutMessage = createPunchedOutMessage_({
+        time: punchedOutTime
+      })
       postToSlack_(punchedOutMessage)
       var punchedOutAt = createTimestamp_(todayDate, punchedOutTime)
       properties.setProperty(PROPERTY_KEY_LAST_PUNCHED_OUT_AT, punchedOutAt)
@@ -211,6 +216,24 @@ function findTimeCardRow_ (timeCardPage, date) {
 */
 function formatDate_ (date, pattern) {
   return moment(date).format(pattern)
+}
+
+/**
+* 出勤メッセージを作成します。
+* @param {Object} data - データ
+* @return {string} メッセージ
+*/
+function createPunchedInMessage_ (data) {
+  return Mustache.render(MESSAGE_TEMPLATE_PUHCHED_IN, data)
+}
+
+/**
+* 退勤メッセージを作成します。
+* @param {Object} data - データ
+* @return {string} メッセージ
+*/
+function createPunchedOutMessage_ (data) {
+  return Mustache.render(MESSAGE_TEMPLATE_PUHCHED_OUT, data)
 }
 
 /**

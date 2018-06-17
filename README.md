@@ -14,10 +14,17 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |`LAST_PUNCHED_IN_AT`|最終出勤日時|-|
 |`LAST_PUNCHED_OUT_AT`|最終退勤日時|-|
 |`LOGIN_RETRY_COUNT`|ログインをリトライする回数|`3`|
-|`MY_NAME`|自分の名前|`ムニエル`|
+|`MESSAGE_TEMPLATE_PUHCHED_IN`|出勤メッセージのテンプレート|`{{time}} ムニエルさんが出勤しました。`|
+|`MESSAGE_TEMPLATE_PUHCHED_OUT`|退勤メッセージのテンプレート|`{{time}} ムニエルさんが退勤しました。`|
 |`SESSION_TIMEOUT_MINUTES`|セッションのタイムアウト時間（分）|`30`|
 |`TIMEZONE_OFFSET`|タイムゾーンのオフセット|`+0900`|
 |`WEBHOOK_URL`|SlackのWebhook URL|`https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX`|
+
+### MESSAGE_TEMPLATE_PUHCHED_IN
+[MESSAGE_TEMPLATE_PUHCHED_IN.md](MESSAGE_TEMPLATE_PUHCHED_IN.md)を参照してください。
+
+### MESSAGE_TEMPLATE_PUHCHED_OUT
+[MESSAGE_TEMPLATE_PUHCHED_OUT.md](MESSAGE_TEMPLATE_PUHCHED_OUT.md)を参照してください。
 
 ## ライブラリ
 以下のライブラリを使用しています。
@@ -25,3 +32,4 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 |ライブラリ|プロジェクトキー|
 |---|---|
 |Moment|`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`|
+|Mustache|`13re0EpD6XiVa5zHXndGiYtcH-QMnbeE5MJH190pJ8xCYhmuW5sX2ZO5R`|
