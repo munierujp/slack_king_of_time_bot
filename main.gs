@@ -54,7 +54,7 @@ function exec () {
 
   // タイムカードページから今日の行を取得
   var todayRow = findTimeCardRow_(timeCardPage, today)
-  var todayDate = formatDate_(today, 'yyyy-MM-dd')
+  var todayDate = formatDate_(today, 'YYYY-MM-DD')
 
   // 出勤情報をSlackに投稿
   var lastPunchedInAt = properties.getProperty(PROPERTY_KEY_LAST_PUNCHED_IN_AT)
@@ -204,7 +204,7 @@ function findTimeCardRow_ (timeCardPage, date) {
   var table = timeCardPage.match('<div +class="htBlock-adjastableTableF_inner" *>((.|\r|\n)+?</table>)')[1]
   var rows = table.match(/<tr( | .+)?>(.|\r|\n)+?<\/tr>/g)
   return rows.filter(function (row) {
-    return row.match('<input +name="working_date" +type="hidden" +value="' + formatDate_(date, 'yyyyMMdd') + '" *>')
+    return row.match('<input +name="working_date" +type="hidden" +value="' + formatDate_(date, 'YYYYMMDD') + '" *>')
   })[0]
 }
 
