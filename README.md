@@ -31,5 +31,5 @@ KING OF TIMEの勤怠情報をSlackに投稿するBOT
 
 |ライブラリ|プロジェクトキー|
 |---|---|
-|Moment|`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`|
-|Mustache|`13re0EpD6XiVa5zHXndGiYtcH-QMnbeE5MJH190pJ8xCYhmuW5sX2ZO5R`|
+|[Moment](https://momentjs.com/)|`MHMchiX6c1bwSqGM1PZiW_PxhMjh3Sh48`|
+|[Mustache](https://github.com/munierujp/Mustache.gs)|`13re0EpD6XiVa5zHXndGiYtcH-QMnbeE5MJH190pJ8xCYhmuW5sX2ZO5R`|
